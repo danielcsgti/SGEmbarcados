@@ -7,22 +7,26 @@
  */
 
 #include "configuration.h"
- 
+
+char e;
+
 void setup() {
   Serial.begin(115200);
+  net.toConnected();
+  //net.toAccessPoint();
 }
 
 void loop() {
-
-  Network net("Redmi","12345678");
-  //Boarded embedded();
-  net.toAccessPoint();
-  //net.toConnected();
-  net.toPrintNetwork();
-
-  for(;;){
-    
-  }
   
+  net.toPrintNetwork();   
+  for(;;){
+    while (Serial.available()>0){
+          e = Serial.read(); // Lê byte do buffer serial;
+          Serial.print(e); // Faz o eco do byte recebido;
+          if (e == 'a')
+              embedded.toRestart();
+          }
+        }
+    
 
 }

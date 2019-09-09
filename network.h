@@ -24,8 +24,8 @@ class Network{
 
     void toConnected(){
         WiFi.begin(this->ssid,this->password);
-        Serial.print("[ net/t ] - Conectando a rede: ");
-        Serial.println(this->ssid);
+        Serial.print("[ net \t ] - Conectando a rede: ");
+        Serial.print(this->ssid);
         while(WiFi.status() != WL_CONNECTED){
           Serial.print(".");
           delay(5000);
@@ -44,16 +44,17 @@ class Network{
     void toPrintNetwork(){
 
         if( strcmp(this->modeOperation,"CLIENT_STATION")==0 ){
-        Serial.print("[ net \t ] - Modo de Operacao: ");
-        Serial.println(this->modeOperation );
-        Serial.print("[ net \t ] - SSID:");
-        Serial.println(this->ssid);
-        Serial.print("[ net \t ] - IP: ");
-        Serial.println(this->ip );
-        Serial.print("[ net \t ] - Mascara de rede: ");
-        Serial.println(this->mask);
-        Serial.print("[ net \t ] - Gateway: ");
-        Serial.println(this->ipGateway);
+          Serial.println();
+          Serial.print("[ net \t ] - Modo de Operacao: ");
+          Serial.println(this->modeOperation );
+          Serial.print("[ net \t ] - SSID:");
+          Serial.println(this->ssid);
+          Serial.print("[ net \t ] - IP: ");
+          Serial.println(this->ip );
+          Serial.print("[ net \t ] - Mascara de rede: ");
+          Serial.println(this->mask);
+          Serial.print("[ net \t ] - Gateway: ");
+          Serial.println(this->ipGateway);
         }else if( strcmp(this->modeOperation,"ACCESS_POINT")==0 ){
             Serial.print("[ net \t ] - Modo de Operacao: ");
             Serial.println(this->modeOperation );

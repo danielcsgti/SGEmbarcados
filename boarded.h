@@ -7,15 +7,15 @@ class Boarded{
     String marca;
     String descHardware;
     String firmware;
+    String location;
   
   public:
     Boarded(){};
     void toSetup(){}
-    
     void toRestart(){
-        
+        Serial.println("Restartando o sistema embarcado ...");
+        ESP.restart();
       }
-    
     void toRegiterLog(){}
 };
 
