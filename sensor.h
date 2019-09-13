@@ -7,6 +7,7 @@ class Sensor{
     String marca;
     String descSensor;
     String sampleRate;
+    String unitMeasurement;
     float *dataRaw[];
    
    public:
