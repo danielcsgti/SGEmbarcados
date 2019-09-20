@@ -8,9 +8,9 @@ class Boarded{
     String descHardware;
     String firmware;
     String location;
-  
+    
   public:
-    Boarded(){};
+    Boarded(){}
     void toSetup(){}
     void toRestart(){
         Serial.println("Restartando o sistema embarcado ...");

@@ -12,7 +12,7 @@ class ServerMqtt{
     char *listTopics[];
 
    public:
-    ComunicationMQTT(){}
+    ServerMqtt(){}
     void toSubscribeTopic(){}
     void toPublishTopic(){}
     

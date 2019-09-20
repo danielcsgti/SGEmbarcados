@@ -6,7 +6,7 @@ class Actuator{
   private:
     int id;
     String marca;
-    String dessHardware;
+    String descActuator;
     String Status;
     char *commands[];
 
