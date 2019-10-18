@@ -1,0 +1,42 @@
+{
+    "boarded":{
+        "brand":"esp32",
+        "descHardware":"CPU LX6 32-bit Dual-core 240 MHz, 520 kB de RAM 4 MB de Flash, WiFi de 2,4 GHz 802.11 b/g/n, Bluetooth BLE V4.2, 34 GPIO",
+        "firmware": "firmware 1.0 13-09-19",
+        "location": "sala-101"
+    },
+    "network":{
+        "ssid": "ssid_name",
+        "password": "12345678",
+        "ip": "192.168.101.23",
+        "mask": "255.255.255.0",
+        "gateway": "192.168.101.1",
+        "modeOperation": "CLIENT_STATION"
+    },
+    "serverMqtt":{
+        "ipHost": "192.168.101.2",
+        "porta": "1883",
+        "user": "admin",
+        "password": "12345678",
+        "listTopics": [ "sensor/temperatura",
+                        "actuator/datashow",
+                        "actuator/rele0",
+                        "actuator/rele1",
+                        "actuator/rele2",
+                        "actuator/rele3"
+                    ]
+    },
+    "sensor":{
+        "brand": "DHT22",
+        "descSensor": "sensor de temperatura e humidade do ar AM2302",
+        "sampleRate": 5,
+        "unitMeasurement": "seg",
+        "dataRaw": [34.5, 35.1]
+    },
+    "actuator":{
+        "brand": "rele",
+        "descActuator": "Rele 127/220vac 1 Canal 5v Entrada Srd-05vd",
+        "state": "on",
+        "commands": ["power", "off"]
+    }
+}
