@@ -16,7 +16,7 @@ char e;
 
 void setup() {
   Serial.begin(115200);
-  //loadFile("/config.json");
+  loadFile("/config.json");
   net.toConnected();
   //net.toPrintNetwork();
   //net.toAccessPoint();
@@ -53,6 +53,9 @@ void setup() {
     mask = request->getParam("mask")->value();
     gateway = request->getParam("gateway")->value();
     essid = request->getParam("essid")->value();
+     
+    net.setNetwork(essid, ip, mask, gateway, modo);
+    saveFile("/config.json");
   });
 
   server.onNotFound(notFound);
