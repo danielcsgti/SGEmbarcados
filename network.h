@@ -23,18 +23,18 @@ class Network {
       this->ssid = ssid;
       this->password = password;
     };
-  
+    
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // SET ATRIBUTOS
 
-    void setNetwork(char *ssid, char* ip, char* mask, char* ipGateway, char* modeOperation) {
+    void setNetwork(const char* ssid, const char* ip, const char* mask, const char* ipGateway, const char* modeOperation) {
       this->ssid = ssid;
       this->ip = ip;
       this->mask = mask;
       this->ipGateway = ipGateway;
       this->modeOperation = modeOperation;
     };
-  
+
     //--------------------------------------------------------------
     // Configura o ESP32 como Estação Cliente
 
