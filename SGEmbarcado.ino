@@ -18,7 +18,7 @@ void setup() {
   Serial.begin(115200);
   loadFile("/config.json");
   net.toConnected();
-  //net.toPrintNetwork();
+  net.toPrintNetwork();
   //net.toAccessPoint();
 
   if (!SPIFFS.begin(true)) {
@@ -42,19 +42,21 @@ void setup() {
   });
 
   server.on("/embarcado/get", HTTP_GET, [] (AsyncWebServerRequest * request) {
-    String hardware, firmware, location, ip, macAndressa, modo, mask, gateway, essid;
     //posso usar essas variaveis para colocar elas em qualquer lugar
-    hardware = request->getParam("hardware")->value();
-    firmware = request->getParam("firmware")->value();
-    location = request->getParam("location")->value();
-    ip = request->getParam("ip")->value();
-    macAndressa = request->getParam("macAddress")->value();
-    modo = request->getParam("modo")->value();
-    mask = request->getParam("mask")->value();
-    gateway = request->getParam("gateway")->value();
-    essid = request->getParam("essid")->value();
-     
+    const char* hardware = request->getParam("hardware")->value().c_str();
+    const char* firmware = request->getParam("firmware")->value().c_str();
+    const char* location = request->getParam("location")->value().c_str();
+    const char* ip = request->getParam("ip")->value().c_str();
+    const char* macAndressa = request->getParam("macAddress")->value().c_str();
+    const char* modo = request->getParam("modo")->value().c_str();
+    const char* mask = request->getParam("mask")->value().c_str();
+    const char* gateway = request->getParam("gateway")->value().c_str();
+    const char* essid = request->getParam("essid")->value().c_str();
+
     net.setNetwork(essid, ip, mask, gateway, modo);
+
+    Serial.println(hardware);
+
     saveFile("/config.json");
   });
 
