@@ -32,7 +32,7 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // VARIAVEIS GLOBAIS
 
-const size_t capacity = 2 * JSON_ARRAY_SIZE(2) + JSON_ARRAY_SIZE(6) + 2 * JSON_OBJECT_SIZE(4) + 3 * JSON_OBJECT_SIZE(5) + JSON_OBJECT_SIZE(6) + 732;
+const size_t capacity = 2 * JSON_ARRAY_SIZE(2) + JSON_ARRAY_SIZE(6) + 2 * JSON_OBJECT_SIZE(4) + 3 * JSON_OBJECT_SIZE(5) + JSON_OBJECT_SIZE(6) + 750;
 StaticJsonDocument<capacity> docJson;
 
 Network net("nep-fapeg", "fapeg@Nep");
