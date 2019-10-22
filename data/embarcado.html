@@ -7,6 +7,26 @@
     <title>Embarcado</title>
     <link href="embarcado.css" rel="stylesheet" />
 
+    <script>
+      function submitMessage() {
+        alert("Valores foram salvos!");
+        setTimeout(function() {
+          document.location.reload(false);
+        }, 500);
+      }
+    </script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+
+    <script>
+      // wait for the DOM to be loaded
+      $(document).ready(function() {
+        // bind 'myForm' and provide a simple callback function
+        $("#myForm").ajaxForm(function() {});
+      });
+    </script>
+
     <style>
       * {
         box-sizing: border-box;
@@ -145,7 +165,7 @@
 
   <body>
     <div class="container">
-      <form action="/embarcado/get" target="hidden-form">
+      <form action="/embarcado/get" target="_self">
         <h1>Embarcados</h1>
         <div>
           <div class="row">
@@ -222,11 +242,45 @@
           </div>
         </div>
         <div class="row">
-          <input class="btnsalvar" type="submit" value="Salvar" />
+          <input
+            class="btnsalvar"
+            type="submit"
+            value="Salvar"
+            onclick="submitMessage()"
+          />
           <input class="btnsair" type="button" value="Sair" />
           <input class="btnlimpar" type="reset" value="Limpar" />
         </div>
       </form>
     </div>
+    <p id="pacoca"></p>
+    <script>
+      var obj,
+        dbParam,
+        xmlhttp,
+        myObj,
+        x,
+        txt = "";
+      obj = { table: "customers", limit: 32 };
+      dbParam = JSON.stringify(obj);
+      xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          myObj = JSON.parse(this.responseText);
+          txt += "<table border='1'>";
+          for (x in myObj) {
+            txt += "<tr><td>" + myObj[x].name + "</td></tr>";
+          }
+          txt += "</table>";
+          document.getElementById("pacoca").innerHTML = txt;
+        }
+      };
+      xmlhttp.open("POST", "config.json", true);
+      xmlhttp.setRequestHeader(
+        "Content-type",
+        "application/x-www-form-urlencoded"
+      );
+      xmlhttp.send("x=" + dbParam);
+    </script>
   </body>
 </html>
