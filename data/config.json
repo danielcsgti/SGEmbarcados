@@ -6,8 +6,8 @@
         "location": "sala-101"
     },
     "network":{
-        "ssid": "ssid_name",
-        "password": "12345678",
+        "ssid": "nep-fapeg",
+        "password": "fapeg@Nep",
         "ip": "192.168.101.23",
         "mask": "255.255.255.0",
         "gateway": "192.168.101.1",
